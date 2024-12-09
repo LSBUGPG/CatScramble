@@ -1,15 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using TMPro;
 using UnityEngine;
 
-public class MoveToTarget : MonoBehaviour
+public class Cat : MonoBehaviour
 {
     public Transform target;
     public float maxDistance = 10;
+    public TMP_Text coinCounter;
 
-    void Start()
+    int coins = 0;
+
+    public void AddCoin()
     {
-        
+        coins++;
+        coinCounter.text = $"Coins: {coins}";
     }
 
     bool CanSeeTarget()
@@ -26,4 +30,6 @@ public class MoveToTarget : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime);        
         }
     }
+
+
 }

@@ -13,12 +13,12 @@ public class Pickup : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         gameObject.SetActive(false);
-        //Player player = other.GetComponent<Player>();
-        //if (player != null)
-        //{
-        //    AudioSource.PlayClipAtPoint(clink, Camera.main.transform.position);
-        //    player.AddCoin();
-        //    gameObject.SetActive(false);
-        //}
+        Cat cat = other.GetComponent<Cat>();
+        if (cat != null)
+        {
+           AudioSource.PlayClipAtPoint(clink, Camera.main.transform.position);
+           cat.AddCoin();
+           gameObject.SetActive(false);
+        }
     }
 }
