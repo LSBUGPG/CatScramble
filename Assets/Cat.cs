@@ -1,35 +1,29 @@
-using System;
-using TMPro;
 using UnityEngine;
 
 public class Cat : MonoBehaviour
 {
     public Transform target;
     public float maxDistance = 10;
-    public TMP_Text coinCounter;
 
-    int coins = 0;
+    public GameScore score;
+    public LayerMask layerMask;
 
-    public void AddCoin()
+    public void CollectCoin()
     {
-        coins++;
-        coinCounter.text = $"Coins: {coins}";
+        score.CollectCoin();
     }
 
     bool CanSeeTarget()
     {
-        Ray toTarget = new(transform.position, target.position);
-        return !Physics.Raycast(toTarget, maxDistance);
+        Ray toTarget = new(transform.position, target.position - transform.position);
+        return !Physics.Raycast(toTarget, maxDistance, layerMask);
     }
 
     void Update()
     {
-        float distance = Vector3.Distance(transform.position, target.position);
         if (CanSeeTarget())
         {
             transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime);        
         }
     }
-
-
 }

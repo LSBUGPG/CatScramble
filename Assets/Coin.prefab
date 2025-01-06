@@ -120,3 +120,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 360
   clink: {fileID: 8300000, guid: 84839467f9878884e80c3df7dbe72fd1, type: 3}
+  score: {fileID: 11400000, guid: 40bf14720075b90419c59f3315550d8a, type: 2}

@@ -4,6 +4,12 @@ public class Pickup : MonoBehaviour
 {
     public float speed = 360;
     public AudioClip clink;
+    public GameScore score;
+
+    void Start()
+    {
+        score.AddCoin();
+    }
 
     void Update()
     {
@@ -17,7 +23,7 @@ public class Pickup : MonoBehaviour
         if (cat != null)
         {
            AudioSource.PlayClipAtPoint(clink, Camera.main.transform.position);
-           cat.AddCoin();
+           cat.CollectCoin();
            gameObject.SetActive(false);
         }
     }
